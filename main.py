@@ -9,9 +9,9 @@ class app():
         self.symbol = config.symbol
 
     def process(self):
-        self.bitCoin.ticker('mzc_btc')
-        self.bitCoin.depth('mzc_btc')
-        self.bitCoin.balance()
+        print(self.bitCoin.ticker('mzc_btc'))
+        print(self.bitCoin.depth('mzc_btc'))
+        print(self.bitCoin.balance())
     
     def loop(self):
         print('开始买卖')

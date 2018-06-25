@@ -13,7 +13,7 @@ try:
 except ImportError:
     from urllib.parse import urlencode
 
-ENDPOINT = "https://api.bit-z.com/api_v1/"
+ENDPOINT = "https://api.bit-z.pro/api_v1/"
 
 def formatNumber(x):
     if isinstance(x, float):
@@ -61,7 +61,7 @@ class BitClient():
         signature = self.signature(message=param)
      
         params['sign'] = str(signature)
-        print(params)
+  
         resp = self.session.request(method,ENDPOINT + path,headers=None,data=None,params=params)
     
         data = json.loads(resp.content)
@@ -137,7 +137,6 @@ class BitClient():
     def openOrders(self,symbol,order_id=None,**kwargs):
         symbol = symbol.lower()
         params = {'coin':symbol}
-        #params.update(kwargs)
         data = self.signedRequest(method="POST", path="openOrders", params=params)['data']
         return data
     
